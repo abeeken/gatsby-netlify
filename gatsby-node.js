@@ -1,33 +1,39 @@
 const path = require(`path`)
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.js`)
-  const result = await graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            frontmatter {
-              path
+const { createFilePath } = require(`gatsby-source-filesystem`)
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    // Creates slugs for blog pages - might need to detect content type to create differently nested slugs...
+    createNodeField({
+      node,
+      name: `slug`,
+      value: `/blog${slug}`,
+    })
+  }
+}
+
+exports.createPages = async function({ actions, graphql }) {
+    const { data } = await graphql(`
+      query {
+        allMarkdownRemark {
+          edges {
+            node {
+              fields {
+                slug
+              }
             }
           }
         }
       }
-    }
-  `)
-  // Handle errors
-  if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
-  }
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.path,
-      component: blogPostTemplate,
-      context: {}, // additional data can be passed via context
+    `)
+    data.allMarkdownRemark.edges.forEach(edge => {
+      const slug = edge.node.fields.slug
+      actions.createPage({
+        path: slug,
+        component: require.resolve(`./src/templates/blogTemplate.js`),
+        context: { slug: slug },
+      })
     })
-  })
-}
+  }

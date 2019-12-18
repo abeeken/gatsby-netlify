@@ -1,5 +1,4 @@
 ---
-path: /blog/first-blog
 date: 2019-12-18T12:30:34.673Z
 title: First Blog!
 ---
