@@ -2,9 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
+import { Helmet } from "react-helmet"
 
 export default ({ data }) => (
     <Layout>
+        <Helmet title="Hello World" />
         <div>Hello world!</div>
         <Img className="image" fluid={data.file.childImageSharp.fluid} alt="Image Alt" />
     </Layout>

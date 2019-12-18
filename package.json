@@ -21,6 +21,7 @@
   "devDependencies": {
     "gatsby-image": "^2.2.37",
     "gatsby-plugin-netlify-cms": "^4.1.33",
+    "gatsby-plugin-react-helmet": "^3.1.18",
     "gatsby-plugin-sass": "^2.1.26",
     "gatsby-plugin-sharp": "^2.3.9",
     "gatsby-source-filesystem": "^2.1.42",
@@ -28,7 +29,8 @@
     "gatsby-transformer-sharp": "^2.3.9",
     "netlify-cms-app": "^2.9.7",
     "node-sass": "^4.13.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "react-helmet": "^5.2.1"
   },
   "repository": {
     "type": "git",
