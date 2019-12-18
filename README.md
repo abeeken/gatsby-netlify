@@ -11,7 +11,7 @@ A basic starter to get a Netlify blog up and running with Gatsby. Includes:
 
 From your command line
 
-    gatsby new name-of-site https://github.com/abeeken/gatsby-basic.git
+    gatsby new name-of-site https://github.com/abeeken/gatsby-netlify.git
     cd name-of-site
 
 Remove any test posts in src/pages/blog and any images in static/assets
