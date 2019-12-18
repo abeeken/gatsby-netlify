@@ -2,6 +2,11 @@
 
 A basic starter to get a Netlify blog up and running with Gatsby. Includes:
 
+* Some scaffolding for flat pages
+* Some components
+* A main stylesheet
+* Scss support
+* Helmet support
 * Basic Blog Posts
 * Automatic post slug generation
 * Gatsby image support
