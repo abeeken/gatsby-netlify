@@ -30,4 +30,8 @@ Follow the instructions on https://docs.netlify.com/visitor-access/oauth-provide
 
 To start building locally and your admin url on Netlify to add content
 
+Blog post pagination is limited to 2 posts per page - change this in gatsby-node.js
+
+    const postsPerPage = X
+
 Enjoy!
