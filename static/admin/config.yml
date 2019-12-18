@@ -1,6 +1,6 @@
 backend:
     name: github
-    repo: gatsby-netlify
+    repo: abeeken/gatsby-netlify
 media_folder: static/assets
 public_folder: assets
 collections:
