@@ -11,6 +11,7 @@ A basic starter to get a Netlify blog up and running with Gatsby. Includes:
 * Automatic post slug generation
 * Gatsby image support
 * Featured images
+* Auto generated, paginated blog post list
 
 ## Usage
 

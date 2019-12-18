@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { Helmet } from "react-helmet"
 import { Link } from 'gatsby'
+import Img from "gatsby-image"
 
 const BlogPage = ({ data, pageContext }) => {
     const {edges} = data.allMarkdownRemark
@@ -20,6 +21,7 @@ const BlogPage = ({ data, pageContext }) => {
                 return(
                     <div class="post">
                         <h3 key={fields.slug}><a href={fields.slug}>{frontmatter.title}</a></h3>
+                        <Img fluid={frontmatter.featuredimage.childImageSharp.fluid} alt="Featured image" />
                         <p>{frontmatter.date}</p>
                         <p>{excerpt}</p>
                     </div>
@@ -60,7 +62,14 @@ query blogList($skip: Int!, $limit: Int!) {
         node {
           frontmatter {
             title
-            date(formatString: "MMMM DD, YYYY")          
+            date(formatString: "MMMM DD, YYYY")
+            featuredimage{
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }    
           }
           fields {
             slug
