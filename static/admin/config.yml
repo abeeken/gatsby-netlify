@@ -12,4 +12,5 @@ collections:
         - { name: date, label: Date, widget: datetime }
         - { name: title, label: Title }
         - { name: featuredimage, label: Featured Image, widget: image }
+        - { name: tags, label: Tags, widget: list, default: ["blog"] }
         - { name: body, label: Body, widget: markdown }

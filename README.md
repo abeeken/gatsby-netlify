@@ -1,6 +1,8 @@
 # Gatsby Netlify
 
-A basic starter to get a Netlify blog up and running with Gatsby. Includes:
+A basic starter to get a Netlify blog up and running with Gatsby.
+
+Includes:
 
 * Some scaffolding for flat pages
 * Some components
